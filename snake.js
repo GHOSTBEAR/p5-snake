@@ -19,7 +19,7 @@ function Snake() {
     }
     this.show = function () {
         fill(0, 255, 0);
-        stroke(50);
+        noStroke();
         rect(this.x, this.y, sizes, sizes);
         oldx.unshift(this.x);
         oldy.unshift(this.y);

@@ -4,7 +4,7 @@ function Score() {
 
     this.show = function () {
         fill(255, 0, 0);
-        stroke(50);
+        noStroke();
         rect(this.x, this.y, sizes, sizes);
     }
 
