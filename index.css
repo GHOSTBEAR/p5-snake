@@ -1,0 +1,30 @@
+body {
+  background: #000;
+  color: rgb(0,255,0);
+  font-family: 'Press Start 2P', serif;
+  font-size: 75%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0 50px;
+  width: auto;
+}
+
+#game {
+  margin: 0 auto;
+}
+
+#info {
+  width: 100%;
+}
+
+canvas {
+  border: 1px solid rgb(0,255,0);
+  tabindex = "1";
+}
+
+td {
+  padding: 0 10px 5px 0;
+}
