@@ -29,7 +29,7 @@ function Snake() {
         }
     }
     this.check = function () {
-        if (this.x < 0 || this.y < 0 || this.x > width || this.y > height) {
+        if (this.x < 0 || this.y < 0 || this.x >= width || this.y >= height) {
             document.getElementById("death").innerHTML = "Out of bounds!";
             noLoop();
             sumbitdata();
