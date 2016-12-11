@@ -1,20 +1,26 @@
-var snake, score, sizes, dir = 2, scr = 1, person, config = {
-	apiKey: "AIzaSyDLQWDljQw2ZBk4aTwb0kDoqCU7ut5PCU8",
-	authDomain: "snake-game-highscore.firebaseapp.com",
-	databaseURL: "https://snake-game-highscore.firebaseio.com",
-	storageBucket: "snake-game-highscore.appspot.com",
-	messagingSenderId: "697454527983"
-};
-
-firebase.initializeApp(config);
-
-var database = firebase.database(), highscores = database.ref('highscores');
+var snake, score, sizes, person = "NUL", dir = 2, scr = 1, highscores;
 
 function setup() {
+	var config = {
+		apiKey: "AIzaSyDLQWDljQw2ZBk4aTwb0kDoqCU7ut5PCU8",
+		authDomain: "snake-game-highscore.firebaseapp.com",
+		databaseURL: "https://snake-game-highscore.firebaseio.com",
+		storageBucket: "snake-game-highscore.appspot.com",
+		messagingSenderId: "697454527983"
+	};
+
+	firebase.initializeApp(config);
+
+	var database = firebase.database();
+	highscores = database.ref('highscores');
+
 	// Prompt user to enter name
 	person = prompt("Enter a three letter name", "AAA");
-	if (person != null && person.length <= 3) {
-		console.log("nine");
+	if (person != null && person.length <= 3 && person.length != "") {
+		console.log("Good to go");
+	} else {
+		console.log("-_-");
+		person = "CPU";
 	}
 
 	// Sets up p5.js canvas and framerate
@@ -32,7 +38,6 @@ function setup() {
 	ref.on("value", gotData, errData);
 
 	if (localStorage.getItem("highscore") != null) {
-		console.log(localStorage.getItem("highscore"));
 		document.getElementById("highscore").innerHTML = "Local: " + localStorage.getItem("name") + " " + localStorage.getItem("highscore");
 	}
 }
