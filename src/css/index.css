@@ -112,9 +112,8 @@ h3 {
 
 .container {
     border: 3px solid rgb(0, 255, 0);
-    margin: 0 auto;
+    margin: 6vh auto;
     width: 500px;
-    vertical-align: center;
 }
 
 #game {
