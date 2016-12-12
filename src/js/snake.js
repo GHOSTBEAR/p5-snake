@@ -19,15 +19,17 @@ function Snake() {
 	};
 
 	this.check = function () {
-		(this.x < 0 || this.y < 0 || this.x >= width || this.y >= height) && death("Out of bounds");
+		if (this.x < 0 || this.y < 0 || this.x >= width || this.y >= height)
+			death("Out of bounds");
 		for (var i = 0; i < body.length; i++) {
-			(olds[0][i + 1] === this.x && olds[1][i + 1] === this.y) && death("Killed in action")
+			if (olds[0][i + 1] === this.x && olds[1][i + 1] === this.y)
+				death("Killed in action");
 		}
 	}
 }
 
 function death(reason) {
-	document.getElementById("death").innerHTML = reason;
+	alert(reason);
 	noLoop();
 	sumbitdata();
 }
@@ -38,7 +40,8 @@ function sumbitdata() {
 		score: scr
 	};
 	highscores.push(data, finished);
-	scr > localStorage.getItem("highscore") && (localStorage.setItem("highscore", scr), localStorage.setItem("name", person));
+	if (scr > localStorage.getItem("highscore"))
+	 (localStorage.setItem("highscore", scr), localStorage.setItem("name", person));
 }
 
 function finished(error) {

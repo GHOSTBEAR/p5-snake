@@ -24,7 +24,7 @@ function setup() {
 	}
 
 	// Sets up p5.js canvas and framerate
-	var canvas = createCanvas(500, 500);
+	var canvas = createCanvas(501, 501);
 	canvas.parent("game");
 	frameRate(7);
 	sizes = 20; // Size of snake

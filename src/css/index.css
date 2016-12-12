@@ -1,56 +1,79 @@
 @keyframes flicker {
     0% {
-        opacity: 0.90403; }
+        opacity: 0.90403;
+    }
     5% {
-        opacity: 0.44126; }
+        opacity: 0.44126;
+    }
     10% {
-        opacity: 0.02259; }
+        opacity: 0.02259;
+    }
     15% {
-        opacity: 0.76784; }
+        opacity: 0.76784;
+    }
     20% {
-        opacity: 0.48178; }
+        opacity: 0.48178;
+    }
     25% {
-        opacity: 0.51975; }
+        opacity: 0.51975;
+    }
     30% {
-        opacity: 0.4369; }
+        opacity: 0.4369;
+    }
     35% {
-        opacity: 0.6326; }
+        opacity: 0.6326;
+    }
     40% {
-        opacity: 0.57552; }
+        opacity: 0.57552;
+    }
     45% {
-        opacity: 0.27119; }
+        opacity: 0.27119;
+    }
     50% {
-        opacity: 0.4011; }
+        opacity: 0.4011;
+    }
     55% {
-        opacity: 0.85061; }
+        opacity: 0.85061;
+    }
     60% {
-        opacity: 0.60204; }
+        opacity: 0.60204;
+    }
     65% {
-        opacity: 0.88038; }
+        opacity: 0.88038;
+    }
     70% {
-        opacity: 0.21843; }
+        opacity: 0.21843;
+    }
     75% {
-        opacity: 0.3059; }
+        opacity: 0.3059;
+    }
     80% {
-        opacity: 0.96234; }
+        opacity: 0.96234;
+    }
     85% {
-        opacity: 0.54646; }
+        opacity: 0.54646;
+    }
     90% {
-        opacity: 0.39677; }
+        opacity: 0.39677;
+    }
     95% {
-        opacity: 0.38309; }
+        opacity: 0.38309;
+    }
     100% {
-        opacity: 0.87896; } }
+        opacity: 0.87896;
+    }
+}
 
 body {
     background: #000;
-    text-transform: uppercase; 
-    color: rgb(0,255,0);
+    color: rgb(0, 255, 0);
     font-family: 'Press Start 2P', serif;
     font-size: 75%;
     margin: 0;
     padding: 0;
-  }
+    text-transform: uppercase;
+}
+
 body::after {
     content: " ";
     display: block;
@@ -63,7 +86,9 @@ body::after {
     opacity: 0;
     z-index: 2;
     pointer-events: none;
-    animation: flicker 0.15s infinite; }
+    animation: flicker 0.15s infinite;
+}
+
 body::before {
     content: " ";
     display: block;
@@ -75,35 +100,43 @@ body::before {
     background: linear-gradient(rgba(100, 10, 41, 0) 50%, rgba(54, 5, 22, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
     z-index: 2;
     background-size: 100% 2px, 3px 100%;
-    pointer-events: none; }
+    pointer-events: none;
+}
+
+h3 {
+    background: rgb(0, 255, 0);
+    color: #000000;
+    margin: 0;
+    padding: 10px 5px;
+}
 
 .container {
-  margin: 0 auto;
-  width: 550px;
+    border: 3px solid rgb(0, 255, 0);
+    margin: 50px auto;
+    width: 500px;
 }
 
 #game {
-  margin: 0 auto;
-}
-
-#info {
-  width: 100%;
+    margin: 0 auto;
 }
 
 #scores {
-    width: 500px;
-	display: inline-flex;
+    background: rgb(0, 255, 0);
+    color: #000000;
+    display: inline-flex;
+    width: 501px;
 }
 
 #scores p {
     margin: 12px 12px 12px 0;
+    padding-left: 5px;
 }
 
 canvas {
-  border: 1px solid rgb(0,255,0);
-  tabindex = "1";
+    border-bottom: 1px solid rgb(0, 255, 0);
+    tabindex="1";
 }
 
 td {
-  padding: 0 10px 5px 0;
+    padding: 0 10px 5px 0;
 }
