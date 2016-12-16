@@ -1,4 +1,11 @@
-var snake, score, sizes, person = "NUL", dir = 2, scr = 1, highscores;
+var snake, score, sizes, highscores , person = "NUL", dir = 2, scr = 1;
+
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
 
 function setup() {
 	var config = {
@@ -37,29 +44,32 @@ function setup() {
 	var ref = database.ref("highscores");
 	ref.on("value", gotData, errData);
 
+	// Puts local high score into html file
+	var localName = localStorage.getItem("name");
+	var localHighScore = localStorage.getItem("highscore");
 	if (localStorage.getItem("highscore") != null) {
-		document.getElementById("highscore").innerHTML = "Local: " + localStorage.getItem("name") + " " + localStorage.getItem("highscore");
+		document.getElementById("highscore").innerHTML = "Local: " + localName + " " + localHighScore;
 	}
 }
 
 function draw() {
-	// General
 	background(10);
-
-	// Score
 	score.show();
-
-	// Snake
-	snake.update(dir), snake.show(), snake.check();
+	snake.update(dir); 
+	snake.show(); 
+	snake.check();
 
 	// Checks if snake is on score
-	(snake.x === score.x && snake.y === score.y) && (body.push(""), score.move(), scr++, document.getElementById("score").innerHTML = "Score: " + scr);
+	var playerScore = document.getElementById("score");
+	if (snake.x === score.x && snake.y === score.y) 
+	 snake.body.push(""), score.move(), scr++, playerScore.innerHTML = "Score: " + scr;
 }
 
 function keyPressed() {
 	keyCode === LEFT_ARROW ? dir = 1 : keyCode === RIGHT_ARROW && (dir = 3);
 	keyCode === UP_ARROW ? dir = 2 : keyCode === DOWN_ARROW && (dir = 4);
-	keyCode === 65 ? body.push("") : keyCode === 66 && (scr++);
+	keyCode === 65 ? snake.body.push("") : keyCode === 66 && (scr++);
+	keyCode === 80 && noLoop();
 }
 
 function gotData(data) {
@@ -84,3 +94,21 @@ function errData(err) {
 	console.log("Error");
 	console.log(err);
 }
+
+var reset = document.getElementById("reset");
+reset.addEventListener("click", function(){
+    snake = new Snake();
+	score.move();
+	scr = 0;
+	loop();
+});
+
+var changeName = document.getElementById("changeName");
+changeName.addEventListener("click", function() {
+	person = prompt("Enter a three letter name", "AAA");
+	if (person != null && person.length <= 3 && person.length != "") {
+		console.log("Changed Name");
+	} else {
+		person = "CPU";
+	}
+});
