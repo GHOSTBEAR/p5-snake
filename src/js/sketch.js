@@ -69,8 +69,8 @@ function gotData(data) {
 	  high = highscores[k].score, name = highscores[k].name;
 	}
   }
-
-  document.getElementById("globalhighscore").innerHTML = "Global: " + name + " " + high;
+  var globalhighscore = document.getElementById("globalhighscore");
+  globalhighscore.innerHTML = "Global: " + name + " " + high;
 }
 
 function errData(err) {

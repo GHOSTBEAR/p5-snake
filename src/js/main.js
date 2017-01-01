@@ -49,9 +49,9 @@ function initializeUsername() {
   // TODO Change prompt to html
   username = prompt("Enter a three letter name", "AAA");
   // TODO Make logic better
-  if (person !== null && person.length <= 3 && person.length !== "") {
+  if (username !== null && username.length <= 3 && username.length !== "") {
 	console.log("Changed Name");
   } else {
-	person = "CPU";
+	username = "CPU";
   }
 }
