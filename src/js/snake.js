@@ -39,7 +39,14 @@ function Snake() {
 	}
   }
 
-  this.scoreinbody = function (score) {
+  this.onFood = function (food) {
+    var playerScore = document.getElementById("score");
+	if (this.x === food.x && this.y === food.y) {
+	  this.body.push(""), food.move(), score++, playerScore.innerHTML = "Score: " + score;
+	}
+  }
+
+  this.foodInsideBoode = function (score) {
 	for (var i = 0; i < this.body.length; i++) {
 	  if (this.olds[0][i + 1] === score.x && this.olds[1][i + 1] === score.y)
 		score.move();
@@ -54,12 +61,12 @@ function Snake() {
 
   this.sumbitdata = function () {
 	var data = {
-	  name: person,
+	  name: username,
 	  score: score
 	};
 	highscores.push(data, this.finished);
 	if (score > localStorage.getItem("highscore"))
-	  (localStorage.setItem("highscore", score), localStorage.setItem("name", person));
+	  (localStorage.setItem("highscore", score), localStorage.setItem("name", username));
   }
 
   this.finished = function (error) {

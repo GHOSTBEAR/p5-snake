@@ -15,10 +15,43 @@ reset.addEventListener("click", function () {
 
 var changeName = document.getElementById("changeName");
 changeName.addEventListener("click", function () {
-  person = prompt("Enter a three letter name", "AAA");
+
+});
+
+function setupRemoteDatabase() {
+  var config = {
+	apiKey: "AIzaSyDLQWDljQw2ZBk4aTwb0kDoqCU7ut5PCU8",
+	authDomain: "snake-game-highscore.firebaseapp.com",
+	databaseURL: "https://snake-game-highscore.firebaseio.com",
+	storageBucket: "snake-game-highscore.appspot.com",
+	messagingSenderId: "697454527983"
+  };
+
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+  highscores = database.ref('highscores');
+
+  var ref = database.ref("highscores");
+  ref.on("value", gotData, errData);
+}
+
+function setupLocalDatabase() {
+  var localName = localStorage.getItem("name");
+  var localHighScore = localStorage.getItem("highscore");
+  var innerHighScore = document.getElementById("highscore");
+  if (localHighScore !== null) {
+	innerHighScore.innerHTML = "Local: " + localName + " " + localHighScore;
+  }
+}
+
+function initializeUsername() {
+  // TODO Change prompt to html
+  username = prompt("Enter a three letter name", "AAA");
+  // TODO Make logic better
   if (person !== null && person.length <= 3 && person.length !== "") {
 	console.log("Changed Name");
   } else {
 	person = "CPU";
   }
-});
+}
