@@ -1,4 +1,4 @@
-var snake, score, sizes, highscores, person = "NUL", dir = 2, scr = 1;
+var snake, score, sizes, highscores, person = "NUL", dir = 2, scr = 1, paused = false;
 
 window.addEventListener("keydown", function(e) {
     // space and arrow keys
@@ -75,12 +75,16 @@ function keyPressed() {
         dir = 2;
     if (keyCode === DOWN_ARROW)
         dir = 4;
-    if (keyCode === 65)
-        snake.body.push("");
-    if (keyCode === 66)
-        score.move();
-    if (keyCode === 80)
+    if (keyCode === 80) {
+      if (paused) {
+        loop();
+        paused = false;
+      } else {
         noLoop();
+        paused = true;
+      }
+    }
+
 }
 
 function gotData(data) {
