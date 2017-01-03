@@ -15,7 +15,7 @@ reset.addEventListener("click", function () {
 
 var changeName = document.getElementById("changeName");
 changeName.addEventListener("click", function () {
-
+  showUserInput();
 });
 
 function setupRemoteDatabase() {
@@ -45,13 +45,24 @@ function setupLocalDatabase() {
   }
 }
 
+function showUserInput() {
+  document.getElementById("userInput").style.visibility = "visible"; // Shows html prompt
+  noLoop(); // Pause game
+}
+
 function initializeUsername() {
-  // TODO Change prompt to html
-  username = prompt("Enter a three letter name", "AAA");
-  // TODO Make logic better
-  if (username !== null && username.length <= 3 && username.length !== "") {
-	console.log("Changed Name");
+  username = document.getElementById("username").value;
+  if (username.length >= 3 && username.length <= 3) {
+	document.getElementById("userInput").style.visibility = "hidden"; 	// Hides html prompt
+	loop() // Start game
   } else {
-	username = "CPU";
+	alert("Enter a three letter name");
   }
 }
+
+var enter = document.getElementById("enter");
+enter.addEventListener("click", function () {
+  initializeUsername();
+});
+
+// TODO Add so user can press enter

@@ -2,21 +2,21 @@ var snake;
 var food;
 var sizes;
 var highscores;
-var username = "NUL";
+var username;
 var direction = 2;
 var score = 1;
 var paused = false;
 
 function setup() {
-  setupRemoteDatabase();
-  setupLocalDatabase();
-  initializeUsername();
-
   // Sets up p5.js canvas and framerate
   var canvas = createCanvas(501, 501);
   canvas.parent("game");
   frameRate(7);
   sizes = 20; // Size of snake
+
+  setupRemoteDatabase();
+  setupLocalDatabase();
+  showUserInput();
 
   // Initialize
   snake = new Snake();
