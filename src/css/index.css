@@ -128,8 +128,8 @@ h3 {
 }
 
 #scores p {
-	margin: 12px 12px 12px 0;
-	padding-left: 5px;
+    margin: 8px 5px 5px 5px;
+	padding: 5px;
 }
 
 canvas {
@@ -137,17 +137,13 @@ canvas {
 	tab-index: 1;
 }
 
-td {
-	padding: 0 10px 5px 0;
-}
-
 .userInput {
 	line-height: 1.5;
-	margin: 40vh auto;
+	margin: 20vh auto;
 }
 
 .inner-box {
-	margin: 25px 10px 10px 10px;
+	padding: 5px 10px 10px 10px;
 	background: #000000;
 }
 
@@ -158,5 +154,15 @@ td {
 	background: rgba(0, 0, 0, 0.80);
 	width: 100%;
 	height: 100%;
-	/*visibility: hidden;*/
+}
+
+.inline-block {
+    width: 100%;
+    display: inline-flex;
+}
+
+#enter {
+    margin: 0;
+    position: inherit;
+    margin-left: 160px;
 }
