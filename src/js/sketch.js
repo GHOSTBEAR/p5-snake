@@ -51,7 +51,9 @@ function keyPressed() {
 	  paused = true;
 	}
   }
-
+    if (keyCode === 82) {
+        resetGame();
+    }
 }
 
 function gotData(data) {
