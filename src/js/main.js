@@ -58,7 +58,12 @@ function showUserInput() {
 function initializeUsername() {
     username = document.getElementById("username").value;
     if (username.length >= 3 && username.length <= 3) {
-        document.getElementById("userInput").style.visibility = "hidden"; // Hides html prompt
+        var userinput = document.getElementById("userInput");
+        userinput.style.visibility = "hidden"; // Hides html prompt
+        if (showingUser) {
+            var dialog = document.getElementById("gameOverDialog");
+            dialog.style.visibility = "false";
+        }
         loop() // Start game
     } else {
         alert("Enter a three letter name");
