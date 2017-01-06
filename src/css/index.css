@@ -75,32 +75,33 @@ body {
 }
 
 body::after {
+    animation: flicker 0.15s infinite;
+    background: #660a2a;
+    background: rgba(100, 10, 41, 0.1);
+    bottom: 0;
     content: " ";
     display: block;
-    position: fixed;
-    top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(100, 10, 41, 0.1);
     opacity: 0;
-    z-index: 2;
     pointer-events: none;
-    animation: flicker 0.15s infinite;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 2;
 }
 
 body::before {
+    background: linear-gradient(rgba(100, 10, 41, 0) 50%, rgba(54, 5, 22, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    bottom: 0;
     content: " ";
     display: block;
-    position: fixed;
-    top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(rgba(100, 10, 41, 0) 50%, rgba(54, 5, 22, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    z-index: 2;
-    background-size: 100% 2px, 3px 100%;
     pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 2;
 }
 
 h3 {
@@ -112,22 +113,23 @@ h3 {
 
 .container {
     border: 3px solid rgb(0, 255, 0);
+    box-sizing: border-box;
     margin: 6vh auto;
-    width: 500px;
+    width: 507px;
 }
 
-#game {
+.canvas {
     margin: 0 auto;
 }
 
-#scores {
+.scores {
     background: rgb(0, 255, 0);
     color: #000000;
     display: inline-flex;
     width: 501px;
 }
 
-#scores p {
+.scores p {
     margin: 8px 5px 5px 5px;
     padding: 5px;
 }
@@ -138,12 +140,12 @@ canvas {
 }
 
 .controlls {
-    display: inline-flex; 
-    text-align: center; 
-    width: 100%;
-    position: fixed;
-    bottom: 0; 
+    bottom: 0;
+    display: inline-flex;
     left: 10px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
 }
 
 .controller {
@@ -160,26 +162,33 @@ canvas {
 }
 
 .inner-box {
-    padding: 5px 10px 10px 10px;
     background: #000000;
+    padding: 5px 10px 10px 10px;
 }
 
 .hiddenDefault {
+    background: #000000;
+    background: rgba(0, 0, 0, 0.80);
+    height: 100%;
+    left: 0;
     position: fixed;
     top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.80);
+    visibility: hidden;
     width: 100%;
-    height: 100%;
 }
 
 .inline-block {
-    width: 100%;
     display: inline-flex;
+    width: 100%;
 }
 
 .enter {
     margin: 0;
-    position: inherit;
     margin-left: 160px;
+    position: inherit;
+}
+
+.userDead {
+    line-height: 1.5;
+    margin: 20vh auto;
 }

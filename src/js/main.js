@@ -50,6 +50,7 @@ function setupLocalDatabase() {
 }
 
 function showUserInput() {
+    showingUser = true;
     document.getElementById("userInput").style.visibility = "visible"; // Shows html prompt
     noLoop(); // Pause game
 }
@@ -69,4 +70,10 @@ enter.addEventListener("click", function () {
     initializeUsername();
 });
 
-// TODO Add so user can press enter
+function showDeadDialog(reasonText) {
+    var reason = document.getElementById("reason");
+    reason.textContent = "Reason: " + reasonText;
+    
+    var dialog = document.getElementById("gameOverDialog");
+    dialog.style.visibility = "visible";
+}

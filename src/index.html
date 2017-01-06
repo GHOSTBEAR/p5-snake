@@ -56,16 +56,14 @@
     <!-- Start: Give this some love -->
     <div class="container">
         <h3>Arcade Game Snake</h3>
-        <div id="game"></div>
-        <div id="scores">
+        <div id="game" class="canvas"></div>
+        <div id="scores" class="scores">
             <p id="score">Score: 0</p>
             <p id="highscore">Local: ABC 0</p>
             <p id="globalhighscore">Global: ABC 0</p>
         </div>
     </div>
     <div class="controlls">
-        <p id="reset" class="controller">Reset</p>
-        <p id="changeName" class="controller">Change Name</p>
     </div>
     <!-- :End -->
     <div id="userInput" class="hiddenDefault">
@@ -82,6 +80,17 @@
                     </label>
                     <p id="enter" class="enter">Enter</p>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="gameOverDialog" class="hiddenDefault">
+        <div class="container userDead">
+            <h3>Game Over</h3>
+            <p id="reason"></p>
+            <p>Not much you can do about it.</p>
+            <div class="inline-block">
+                <p id="changeName" class="controller">Change Name</p>
+                <p id="reset" class="controller">Reset</p>
             </div>
         </div>
     </div>

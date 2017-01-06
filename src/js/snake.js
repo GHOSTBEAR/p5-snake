@@ -54,7 +54,7 @@ function Snake() {
   }
 
   this.death = function (reason) {
-	alert(reason);
+	showDeadDialog(reason);
 	noLoop();
 	this.sumbitdata();
   }
