@@ -6,6 +6,8 @@ window.addEventListener("keydown", function (e) {
 }, false);
 
 function resetGame() {
+    var dialog = document.getElementById("gameOverDialog");
+    dialog.style.visibility = "hidden";
     snake = new Snake();
     food.move();
     score = 0;
@@ -60,10 +62,6 @@ function initializeUsername() {
     if (username.length >= 3 && username.length <= 3) {
         var userinput = document.getElementById("userInput");
         userinput.style.visibility = "hidden"; // Hides html prompt
-        if (showingUser) {
-            var dialog = document.getElementById("gameOverDialog");
-            dialog.style.visibility = "false";
-        }
         loop() // Start game
     } else {
         alert("Enter a three letter name");
