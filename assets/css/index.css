@@ -156,7 +156,7 @@ canvas {
     left: 0;
     position: fixed;
     top: 0;
-    visibility: visible;
+    visibility: hidden;
     width: 100%;
 }
 
