@@ -139,23 +139,6 @@ canvas {
     tab-index: 1;
 }
 
-.controlls {
-    bottom: 0;
-    display: inline-flex;
-    left: 10px;
-    position: fixed;
-    text-align: center;
-    width: 100%;
-}
-
-.controller {
-    font-size: 14px;
-}
-
-.controller:not(:first-child) {
-    margin-left: 15px;
-}
-
 .userInput {
     line-height: 1.5;
     margin: 20vh auto;
@@ -173,13 +156,26 @@ canvas {
     left: 0;
     position: fixed;
     top: 0;
-    visibility: hidden;
+    visibility: visible;
     width: 100%;
 }
 
 .inline-block {
     display: inline-flex;
     width: 100%;
+}
+
+.controllers {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.controller {
+    font-size: 14px;
+}
+
+.controller:not(:first-child) {
+    margin-left: 30px;
 }
 
 .enter {
@@ -191,4 +187,8 @@ canvas {
 .userDead {
     line-height: 1.5;
     margin: 20vh auto;
+}
+
+.userDead p:not(.controller) {
+    padding: 0 10px
 }
