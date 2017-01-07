@@ -10,6 +10,7 @@ var showingUser = false;
 
 function setup() {
     // Sets up p5.js canvas and framerate
+    "use strict";
     var canvas = createCanvas(501, 501);
     canvas.parent("game");
     frameRate(7);
@@ -25,6 +26,7 @@ function setup() {
 }
 
 function draw() {
+    "use strict";
     background(10);
     food.show();
     snake.update(direction);
@@ -35,14 +37,19 @@ function draw() {
 }
 
 function keyPressed() {
-    if (keyCode === LEFT_ARROW)
+    "use strict";
+    if (keyCode === LEFT_ARROW) {
         direction = 1;
-    if (keyCode === RIGHT_ARROW)
+    }
+    if (keyCode === RIGHT_ARROW) {
         direction = 3;
-    if (keyCode === UP_ARROW)
+    }
+    if (keyCode === UP_ARROW) {
         direction = 2;
-    if (keyCode === DOWN_ARROW)
+    }
+    if (keyCode === DOWN_ARROW) {
         direction = 4;
+    }
     if (keyCode === 80) {
         if (paused) {
             loop();
@@ -60,28 +67,4 @@ function keyPressed() {
             initializeUsername();
         }
     }
-}
-
-function gotData(data) {
-    var highscores = data.val();
-    // Grab the keys to iterate over the object
-    var keys = Object.keys(highscores);
-
-    var high = 0,
-        name = "ABC";
-
-    for (var i = 0; i < keys.length; i++) {
-        var k = keys[i];
-        // Checks which of the highscores is the highest highscore
-        if (highscores[k].score > high) {
-            high = highscores[k].score, name = highscores[k].name;
-        }
-    }
-    var globalhighscore = document.getElementById("globalhighscore");
-    globalhighscore.innerHTML = "Global: " + name + " " + high;
-}
-
-function errData(err) {
-    console.log("Error");
-    console.log(err);
 }
